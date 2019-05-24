@@ -1,7 +1,7 @@
 import csv
 #Open CSV
-with open('', newline='') as csvfile:
-    inputFile = csv.reader(csvfile, delimiter=' ', quotechar='|')
+with open('Culure_BDD.csv') as csvfile:
+    inputFile = csv.reader(csvfile, delimiter=';', quotechar='|')
     for row in inputFile:
          print(', '.join(row))
 
