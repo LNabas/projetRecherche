@@ -1,8 +1,11 @@
+#!/usr/bin/python
+# vim: set fileencoding=utf-8 :
 import csv
 
+fname = "Culture_BDD_V3.csv"
+file = open(fname, "r")
 
 
-#Fusion sort
 def fusion(gauche, droite):
     resultat = []
     index_gauche, index_droite = 0, 0
@@ -30,13 +33,12 @@ def tri_fusion(m):
     droite = tri_fusion(droite)
     return list(fusion(gauche, droite))
 
+try:
+    reader = csv.reader(file)
+    for row in reader:
+        
+        result = tri_fusion(row)
+        print(result)
 
-# Open CSV
-with open('Culture_BDD_V3.csv', newline='') as csvfile:
-    inputFile = csv.reader(csvfile, delimiter=';', quotechar=' ')
-    fileIn = ''
-    for row in inputFile:
-        tableau = []
-        while row != "":
-            sortData =  tri_fusion(tableau)
-    print(', '.join(sortData))
+finally:
+    file.close()
