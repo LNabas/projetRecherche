@@ -34,6 +34,15 @@ def tri_fusion(m):
 # Open CSV
 with open('', newline='') as csvfile:
     inputFile = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    fileIn = ''
     for row in inputFile:
-       sortData =  tri_fusion(row)
+        tableau = []
+        while row != "":
+            row = row.strip()
+            row = row.split(" ")
+            tableau.append(row)
+            row = fileIn.readline()
+            tableau = array(tableau)
+
+       sortData =  tri_fusion(tableau)
     print(', '.join(sortData))
