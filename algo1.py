@@ -1,9 +1,4 @@
 import csv
-#Open CSV
-with open('', newline='') as csvfile:
-    inputFile = csv.reader(csvfile, delimiter=' ', quotechar='|')
-    for row in inputFile:
-         print(', '.join(row))
 
 
 
@@ -34,3 +29,11 @@ def tri_fusion(m):
     gauche = tri_fusion(gauche)
     droite = tri_fusion(droite)
     return list(fusion(gauche, droite))
+
+
+# Open CSV
+with open('', newline='') as csvfile:
+    inputFile = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    for row in inputFile:
+       sortData =  tri_fusion(row)
+    print(', '.join(sortData))
