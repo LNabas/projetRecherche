@@ -34,11 +34,12 @@ def tri_fusion(m):
     return list(fusion(gauche, droite))
 
 try:
-    reader = csv.reader(file)
+    reader = csv.reader(file, delimiter=';')
+    result = []
     for row in reader:
-        
-        result = tri_fusion(row)
-        print(result)
+        #result = tri_fusion(row[8])
+        arrayR = result.append(row[8]).sort()
+        print(arrayR)
 
 finally:
     file.close()
