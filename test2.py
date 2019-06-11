@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # vim: set fileencoding=utf-8 :
 import csv
+class MyNumDialect(csv.excel):
+    quoting = csv.QUOTE_NONNUMERIC
 
 fname = "Culture_BDD_V3.csv"
 file = open(fname, "r")
@@ -34,12 +36,11 @@ def tri_fusion(m):
     return list(fusion(gauche, droite))
 
 try:
-    reader = csv.reader(file, delimiter=';')
+    reader = csv.reader(file, MyNumDialect(), delimiter=';')
     result = []
     for row in reader:
-        #result = tri_fusion(row[8])
+        result = tri_fusion(row[8])
         arrayR = result.append(row[8]).sort()
         print(arrayR)
-
 finally:
     file.close()
